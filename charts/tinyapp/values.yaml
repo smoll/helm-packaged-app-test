@@ -13,8 +13,10 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
+  name: flask
   type: ClusterIP
-  port: 80
+  externalPort: 80
+  internalPort: 5000
 
 ingress:
   enabled: false

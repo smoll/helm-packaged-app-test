@@ -1,4 +1,4 @@
-# Default values for kingmaker.
+# Default values for tinyapp.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -17,9 +17,9 @@ service:
 
 ingress:
   enabled: true
-  path: "/"
+  path: /
   hosts:
-    - "localhost"
+    - tinyapp.localhost
   annotations:
     traefik.frontend.rule.type: PathPrefix
     kubernetes.io/ingress.class: traefik
