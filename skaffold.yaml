@@ -1,0 +1,33 @@
+apiVersion: skaffold/v1alpha4
+kind: Config
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+      # The name of the image to be built.
+    - image: tinyapp-tmp
+      # The path to your dockerfile context. Defaults to ".".
+      context: .
+deploy:
+  helm:
+    releases:
+      - name: tinyapp
+        namespace: tinyapp
+        chartPath: charts/tinyapp
+        #wait: true
+        valuesFiles:
+          - config/helm/local-values.yaml
+        values:
+          image: tinyapp-tmp
+        #recreatePods will pass --recreate-pods to helm upgrade
+        #recreatePods: true
+        #overrides builds an override values.yaml file to run with the helm deploy
+        #overrides:
+        # some:
+        #   key: someValue
+        #setValues get appended to the helm deploy with --set.
+        setValues:
+          image.pullPolicy: IfNotPresent
+          # some.key: someValue
+        imageStrategy:
+          helm: {}
