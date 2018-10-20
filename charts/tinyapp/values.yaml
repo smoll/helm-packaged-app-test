@@ -18,6 +18,9 @@ service:
   externalPort: 80
   internalPort: 5000
 
+tinyapp:
+  greeting: idk
+
 ingress:
   enabled: false
   annotations: {}

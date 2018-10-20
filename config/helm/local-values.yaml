@@ -15,6 +15,9 @@ fullnameOverride: ""
 service:
   type: NodePort
 
+tinyapp:
+  greeting: hello
+
 ingress:
   enabled: true
   path: /

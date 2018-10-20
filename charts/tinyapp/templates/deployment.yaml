@@ -26,6 +26,8 @@ spec:
           env:
             - name: PORT
               value: "{{ .Values.service.internalPort }}"
+            - name: GREETING
+              value: "{{ .Values.tinyapp.greeting }}"
           ports:
             - name: http
               containerPort: {{ .Values.service.internalPort }}
